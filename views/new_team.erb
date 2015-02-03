@@ -1,0 +1,16 @@
+<h3>Add a team</h3>
+
+<form action="/teams" method="post">
+  <input type="text" name="team_name" placeholder="Team name">
+  <button type="submit">Add team</button>
+</form>
+
+<ul class="list-unstyled">
+  <% if @teams.any? %>
+    <% @teams.each do |team| %>
+      <li>
+        <%= team.team_name %> | <a href="/team/<%= team.id %>/edit">Edit Team</a>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

@@ -1,0 +1,18 @@
+<h3>Add a player</h3>
+
+<form action="/players" method="post">
+  <input type="text" name="player_name" placeholder="Player name">
+  <button type="submit">Add player</button>
+</form>
+
+<ul class="list-unstyled">
+  <% if @players.any? %>
+    <% @players.each do |player| %>
+      <li>
+        <%= player.player_name %> | <a href="/player/<%= player.id %>/edit">edit</a>
+
+        </form>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

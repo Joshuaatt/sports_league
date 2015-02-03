@@ -1,0 +1,6 @@
+<h2>Edit <%= @player.player_name %></h2>
+
+<form action="/player/<%= @player.id %>/edit" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit">delete</button>
+</form>

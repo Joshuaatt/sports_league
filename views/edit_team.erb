@@ -1,0 +1,36 @@
+<h2>Edit <em><%= @team.team_name %></em></h2>
+<form action="/team/<%= @team.id %>/edit" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit">Delete</button>
+</form>
+<hr>
+<p>
+  Pick players to add to the team:
+</p>
+
+
+<% if @players.any? %>
+  <form action="/team/<%= @team.id %>/edit" method="post">
+    <input type="hidden" name="_method" value="patch">
+      <% @players.each do |player| %>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="player_ids[]" value="<%= player.id %>"> <%= player.player_name %>
+          </lable>
+        </div>
+      <% end %>
+    <button type="submit">Assign players</button>
+  </form>
+<% end %>
+<hr>
+
+<% if @team.players.any? %>
+  <p>
+    Players on this team:
+  </p>
+  <ul class="list-unstyled">
+    <% @team.players.each do |player| %>
+      <li><%= player.player_name %></li>
+    <% end %>
+  </ul>
+<% end %>
